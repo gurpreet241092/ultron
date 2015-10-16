@@ -8,7 +8,6 @@ global.Blueprint3d = function(opts) {
   // opts.textureDir
 
   this.model = new Model(opts.textureDir);
-  window.hacked_model = this.model;
   this.three = new ThreeMain(this.model, opts.threeElement, opts.threeCanvasElement, {});
   if (!opts.widget) {
     this.floorplanner = new Floorplanner(opts.floorplannerElement, this.model.floorplan);

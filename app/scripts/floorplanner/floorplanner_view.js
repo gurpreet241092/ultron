@@ -47,13 +47,13 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
     canvasSel.height(parent.innerHeight());
     canvasSel.width(parent.innerWidth());
     canvasElement.height = parent.innerHeight();
-    canvasElement.width = parent.innerWidth(); 
+    canvasElement.width = parent.innerWidth();
     scope.draw();
   }
 
   this.draw = function() {
     context.clearRect(0, 0, canvasElement.width, canvasElement.height);
-    drawGrid();
+    // drawGrid();
     utils.forEach(floorplan.getRooms(), drawRoom);
     utils.forEach(floorplan.getWalls(), drawWall);
     utils.forEach(floorplan.getCorners(), drawCorner);
@@ -85,7 +85,7 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
       color = deleteColor;
     } else if (hover) {
       color = wallColorHover;
-    } 
+    }
     drawLine(
       viewmodel.convertX(wall.getStartX()),
       viewmodel.convertY(wall.getStartY()),
@@ -123,11 +123,11 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
     context.strokeStyle = "#ffffff";
     context.lineWidth  = 4;
 
-    context.strokeText(cmToFeet(length), 
-      viewmodel.convertX(pos.x), 
+    context.strokeText(cmToFeet(length),
+      viewmodel.convertX(pos.x),
       viewmodel.convertY(pos.y));
-    context.fillText(cmToFeet(length), 
-      viewmodel.convertX(pos.x), 
+    context.fillText(cmToFeet(length),
+      viewmodel.convertX(pos.x),
       viewmodel.convertY(pos.y));
   }
 
@@ -137,31 +137,31 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
       color = deleteColor;
     } else if (hover) {
       color = edgeColorHover;
-    } 
+    }
     corners = edge.corners();
     drawPolygon(
       utils.map(corners, function(corner) {
         return viewmodel.convertX(corner.x);
-      }), 
+      }),
       utils.map(corners, function(corner) {
         return viewmodel.convertY(corner.y);
-      }), 
+      }),
       false,
       null,
       true,
       color,
       edgeWidth
-    ); 
+    );
   }
 
   function drawRoom(room) {
     drawPolygon(
       utils.map(room.corners, function(corner) {
         return viewmodel.convertX(corner.x);
-      }), 
+      }),
       utils.map(room.corners, function(corner) {
         return viewmodel.convertY(corner.y);
-      }), 
+      }),
       true,
       roomColor
     );
@@ -174,20 +174,20 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
       color = deleteColor;
     } else if (hover) {
       color = cornerColorHover;
-    } 
+    }
     drawCircle(
-      viewmodel.convertX(corner.x), 
-      viewmodel.convertY(corner.y), 
-      hover ? cornerRadiusHover : cornerRadius, 
+      viewmodel.convertX(corner.x),
+      viewmodel.convertY(corner.y),
+      hover ? cornerRadiusHover : cornerRadius,
       color
     );
   }
 
   function drawTarget(x, y, lastNode) {
     drawCircle(
-      viewmodel.convertX(x), 
-      viewmodel.convertY(y), 
-      cornerRadiusHover, 
+      viewmodel.convertX(x),
+      viewmodel.convertY(y),
+      cornerRadiusHover,
       cornerColorHover
     );
     if (viewmodel.lastNode) {
@@ -223,10 +223,10 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
       context.lineTo(xArr[i], yArr[i]);
     }
     context.closePath();
-    if (fill) {
-      context.fillStyle = fillColor;
-      context.fill();   
-    }
+    // if (fill) {
+    //   context.fillStyle = fillColor;
+    //   context.fill();
+    // }
     if (stroke) {
       context.lineWidth = strokeWidth;
       context.strokeStyle = strokeColor;
@@ -242,12 +242,12 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
     context.fill();
   }
 
-  // returns n where -gridSize/2 < n <= gridSize/2 
+  // returns n where -gridSize/2 < n <= gridSize/2
   function calculateGridOffset(n) {
     if (n >= 0) {
       return (n + gridSpacing/2.0) % gridSpacing - gridSpacing/2.0;
     } else {
-      return (n - gridSpacing/2.0) % gridSpacing + gridSpacing/2.0;  
+      return (n - gridSpacing/2.0) % gridSpacing + gridSpacing/2.0;
     }
   }
 
