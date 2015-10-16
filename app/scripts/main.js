@@ -176,7 +176,20 @@ $(document).ready(function() {
       "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/111/thumbnail_nyc2.jpg",
       "model" : "./data/cup.js",
       "type" : "1"
+    },
+    {
+      "name" : "KingBed Interior",
+      "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/111/thumbnail_nyc2.jpg",
+      "model" : "./data/kingbed_interior.js",
+      "type" : "1"
+    },
+    {
+      "name" : "Tree",
+      "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/111/thumbnail_nyc2.jpg",
+      "model" : "./data/tree.js",
+      "type" : "1"
     }
+
 
   ]
 

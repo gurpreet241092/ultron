@@ -135,8 +135,14 @@ var ContextMenu = function(blueprint3d) {
     return inches * 2.54;
   }
 
+  function toScreenPos(item){
+
+  }
+
   function itemSelected(item) {
     selectedItem = item;
+
+    console.log(selectedItem);
 
     $("#context-menu-name").text(item.metadata.itemName);
 
