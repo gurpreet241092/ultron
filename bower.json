@@ -1,0 +1,11 @@
+{
+  "name": "blueprint3d",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.1"
+  },
+  "devDependencies": {
+    "chai": "~3.3.0",
+    "mocha": "~2.3.3"
+  }
+}

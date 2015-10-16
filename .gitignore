@@ -1,8 +1,8 @@
-*.sublime-workspace
 node_modules
-static
-*.DS_Store
-build
-*.sublime-project
-*.log
-
+dist
+.tmp
+.sass-cache
+bower_components
+example
+src
+.DS_Store
