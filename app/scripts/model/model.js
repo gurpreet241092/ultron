@@ -17,12 +17,11 @@ var Model = function(textureDir) {
   this.roomSavedCallbacks = JQUERY.Callbacks(); // success (bool), copy (bool)
   this.roomDeletedCallbacks = JQUERY.Callbacks();
 
-  this.loadSerialized = function(data_json) {
+  this.loadSerialized = function(data) {
     // TODO: better documentation on serialization format.
     // TODO: a much better serialization format.
     this.roomLoadingCallbacks.fire();
 
-    data = JSON.parse(data_json)
     scope.newRoom(
       data.floorplan,
       data.items
@@ -64,7 +63,7 @@ var Model = function(textureDir) {
     this.floorplan.loadFloorplan(floorplan);
     utils.forEach(items, function(item) {
       position = new THREE.Vector3(
-        item.xpos, item.ypos, item.zpos)    
+        item.xpos, item.ypos, item.zpos)
       var metadata = {
         itemName: item.item_name,
         resizable: item.resizable,
@@ -76,11 +75,11 @@ var Model = function(textureDir) {
         y: item.scale_y,
         z: item.scale_z
       }
-      scope.scene.addItem( 
-        item.item_type, 
-        item.model_url, 
+      scope.scene.addItem(
+        item.item_type,
+        item.model_url,
         metadata,
-        position, 
+        position,
         item.rotation,
         scale,
         item.fixed);
