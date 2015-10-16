@@ -25,13 +25,9 @@
     <div class="container-fluid">
       <div class="row main-row">
         <!-- Left Column -->
-        <div class="col-xs-6 sidebar">
+        <div class="col-xs-4 sidebar">
           <!-- Main Navigation -->
           <ul class="nav nav-sidebar">
-            <li id="floorplan_tab"><a href="#">
-              Edit Floorplan
-              <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-            </a></li>
             <li id="design_tab"><a href="#">
               Design
               <span class="glyphicon glyphicon-chevron-right pull-right"></span>
@@ -43,8 +39,30 @@
           </ul>
           <hr />
 
-          <div class="two-dimensional-image"></div>
 
+          <div id="floorplanner-wrapper">
+            <div class="two-dimensional-image"></div>
+            <canvas id="floorplanner-canvas"></canvas>
+            <div id="floorplanner-controls">
+
+              <button id="move" class="btn btn-sm btn-default">
+                <span class="glyphicon glyphicon-move"></span>
+                Move Walls
+              </button>
+              <button id="draw" class="btn btn-sm btn-default">
+                <span class="glyphicon glyphicon-pencil"></span>
+                Draw Walls
+              </button>
+              <button id="delete" class="btn btn-sm btn-default">
+                <span class="glyphicon glyphicon-remove"></span>
+                Delete Walls
+              </button>
+
+            </div>
+            <div id="draw-walls-hint">
+              Press the "Esc" key to stop drawing walls
+            </div>
+          </div>
           <!-- Context Menu -->
           <div id="context-menu">
             <div style="margin: 0 20px">
@@ -135,7 +153,7 @@
         </div>
 
         <!-- Right Column -->
-        <div class="col-xs-6 main">
+        <div class="col-xs-8 main">
 
           <!-- 3D Viewer -->
           <div id="viewer">
@@ -175,9 +193,9 @@
           </div>
 
           <!-- 2D Floorplanner -->
-          <div id="floorplanner">
-            <canvas id="floorplanner-canvas"></canvas>
-            <div id="floorplanner-controls">
+          <!-- <div id="floorplanner"> -->
+            <!-- <canvas id="floorplanner-canvas"></canvas> -->
+            <!-- <div id="floorplanner-controls">
 
               <button id="move" class="btn btn-sm btn-default">
                 <span class="glyphicon glyphicon-move"></span>
@@ -198,8 +216,8 @@
             </div>
             <div id="draw-walls-hint">
               Press the "Esc" key to stop drawing walls
-            </div>
-          </div>
+            </div> -->
+          <!-- </div> -->
 
           <!-- Add Items -->
           <div id="add-items">

@@ -119,10 +119,6 @@ div {
   display: none;
 }
 
-#floorplanner {
-  display: none;
-}
-
 #add-items {
   display: none;
   padding: 20px;
@@ -136,6 +132,10 @@ div {
   right: 0;
   padding: 0 20px;
   text-align: right;
+}
+
+#floorplanner-wrapper{
+  position: relative;
 }
 
 #floorplanner-controls {
@@ -166,4 +166,12 @@ div {
     position: relative;
     display: block;
     padding: 10px 15px;
+}
+
+#floorplanner-canvas{
+  position: absolute;
+  top: 40px;
+}
+#context-menu{
+  display: none;
 }
