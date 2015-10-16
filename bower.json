@@ -2,7 +2,8 @@
   "name": "blueprint3d",
   "private": true,
   "dependencies": {
-    "jquery": "~1.11.1"
+    "jquery": "~1.11.1",
+    "bootflat": "*"
   },
   "devDependencies": {
     "chai": "~3.3.0",
