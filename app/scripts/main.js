@@ -169,7 +169,27 @@ $(document).ready(function() {
       "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/111/thumbnail_nyc2.jpg",
       "model" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_model/model/77/nyc-poster2.js",
       "type" : "2"
+    },
+    {
+      "name" : "Cup",
+      "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/111/thumbnail_nyc2.jpg",
+      "model" : "./data/cup.js",
+      "type" : "1"
+    },
+    {
+      "name" : "KingBed Interior",
+      "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/111/thumbnail_nyc2.jpg",
+      "model" : "./data/kingbed_interior.js",
+      "type" : "1"
+    },
+    {
+      "name" : "Tree",
+      "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/111/thumbnail_nyc2.jpg",
+      "model" : "./data/tree.js",
+      "type" : "1"
     }
+
+
   ]
 
 
