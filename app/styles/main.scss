@@ -1,11 +1,12 @@
 // bower:scss
 // endbower
 //
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300);
 @import 'bootflat';
 
 body {
   background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   color: #333;
 }
 
@@ -67,6 +68,7 @@ div {
   overflow-y: auto;
   border-right: 1px solid #eee;
   background-color: #fff;
+  min-width:475;
 }
 
 .nav-sidebar {
@@ -143,7 +145,6 @@ div {
 
 #floorplanner-controls {
     margin: 20px auto;
-    padding: 0 15px;
     display: table;
   }
 
