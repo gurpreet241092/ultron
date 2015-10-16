@@ -142,13 +142,10 @@ div {
 }
 
 #floorplanner-controls {
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 20px 0;
-  padding: 0 15px;
-  width: 100%;
-}
+    margin: 20px auto;
+    padding: 0 15px;
+    display: table;
+  }
 
 #draw-walls-hint {
   position: absolute;

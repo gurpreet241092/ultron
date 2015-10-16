@@ -1,4 +1,5 @@
 require('./ultron.js');
+var THREE = require('three');
 
 /*
  * Camera Buttons
@@ -504,6 +505,26 @@ $(document).ready(function() {
   var sideMenu = new SideMenu(blueprint3d, viewerFloorplanner, modalEffects);
   var textureSelector = new TextureSelector(blueprint3d, sideMenu);
   var cameraButtons = new CameraButtons(blueprint3d);
+
+  //Create grid
+  var size = 1000, step = 20;
+
+var geometry = new THREE.Geometry();
+var material = new THREE.LineBasicMaterial( { color: 0xcccccc, opacity: 0.2 } );
+
+for ( var i = - size; i <= size; i += step ) {
+
+    geometry.vertices.push( new THREE.Vector3( - size, 0, i ) );
+    geometry.vertices.push( new THREE.Vector3(   size, 0, i ) );
+
+    geometry.vertices.push( new THREE.Vector3( i, 0, - size ) );
+    geometry.vertices.push( new THREE.Vector3( i, 0,   size ) );
+
+}
+
+var line = new THREE.Line( geometry, material, THREE.LinePieces );
+var scene = blueprint3d.three.getScene();
+scene.add( line );
 
   // Simple hack for exporting rooms.
   $(window).dblclick(function() {
