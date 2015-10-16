@@ -356,7 +356,7 @@ module.exports = function (grunt) {
         debug: true
       },
       dist: {
-        src: './app/scripts/main.js',
+        src: './app/scripts/*.js',
         dest: './.tmp/scripts/bundle.js'
       }
     }
@@ -420,7 +420,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
+    // 'newer:jshint',
     'watchify',
     'test',
     'build'
