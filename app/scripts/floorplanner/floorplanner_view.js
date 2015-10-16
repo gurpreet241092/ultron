@@ -24,9 +24,13 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
   var wallWidthHover = 7;
   var wallColor = "#dddddd"
   var wallColorHover = "#008cba"
-  var edgeColor = "#888888"
+  // var edgeColor = "#888888" // deafault
+  // var edgeColor = "#FF3300" // bright red
+  var edgeColor = "#66FF33" // green
   var edgeColorHover = "#008cba"
   var edgeWidth = 1
+
+  var noFill = false;
 
   var deleteColor = "#ff0000";
 
@@ -139,6 +143,19 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
       color = edgeColorHover;
     }
     corners = edge.corners();
+    // drawPolygon(
+    //   utils.map(corners, function(corner) {
+    //     return viewmodel.convertX(corner.x);
+    //   }),
+    //   utils.map(corners, function(corner) {
+    //     return viewmodel.convertY(corner.y);
+    //   }),
+    //   false,
+    //   null,
+    //   true,
+    //   color,
+    //   edgeWidth
+    // );
     drawPolygon(
       utils.map(corners, function(corner) {
         return viewmodel.convertX(corner.x);
@@ -146,15 +163,13 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
       utils.map(corners, function(corner) {
         return viewmodel.convertY(corner.y);
       }),
-      false,
-      null,
       true,
-      color,
-      edgeWidth
+      color
     );
   }
 
   function drawRoom(room) {
+    noFill = true;
     drawPolygon(
       utils.map(room.corners, function(corner) {
         return viewmodel.convertX(corner.x);
@@ -223,10 +238,14 @@ var FloorplannerView = function(floorplan, viewmodel, canvas) {
       context.lineTo(xArr[i], yArr[i]);
     }
     context.closePath();
-    // if (fill) {
-    //   context.fillStyle = fillColor;
-    //   context.fill();
-    // }
+    if(!noFill){
+      if (fill) {
+        context.fillStyle = fillColor;
+        context.fill();
+      }
+    }else{
+      noFill = false;
+    }
     if (stroke) {
       context.lineWidth = strokeWidth;
       context.strokeStyle = strokeColor;
