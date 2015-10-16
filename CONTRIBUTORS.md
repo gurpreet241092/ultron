@@ -1,4 +1,4 @@
-##Gurpreet Khanuja
+##Gurpreet Singh Khanuja
 ##Neeraj Surana
 ##Vivek Jagtap
 ##Vikash Agarwal
