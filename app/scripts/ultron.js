@@ -786,4 +786,24 @@ $(document).ready(function() {
   blueprint3d.model.loadSerialized(data);
 });
 
+var input = document.getElementById('upload_floorplan');
+
+input.onclick = function () {
+    this.value = null;
+};
+
+input.onchange = function () {
+    var file = this.files[0];
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = function () {
+        var image = new Image();
+        image.src = fileReader.result;
+        image.onload = function () {
+        	var url = 'url('+image.src+')';
+            $('.two-dimensional-image').css('background-image',url);
+        };
+    };
+};
+
 
