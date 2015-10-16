@@ -26,7 +26,7 @@ var Scene = function(model, textureDir) {
   // init item loader
   var loader = new THREE.JSONLoader();
   loader.crossOrigin = "";
-  
+
   var item_types = {
     1: FloorItem,
     2: WallItem,
@@ -37,7 +37,7 @@ var Scene = function(model, textureDir) {
   };
 
   // init callbacks
-  this.itemLoadingCallbacks = JQUERY.Callbacks(); 
+  this.itemLoadingCallbacks = JQUERY.Callbacks();
   this.itemLoadedCallbacks = JQUERY.Callbacks(); // Item
   this.itemRemovedCallbacks = JQUERY.Callbacks(); // Item
 
