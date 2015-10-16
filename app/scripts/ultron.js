@@ -39,10 +39,29 @@ var CameraButtons = function(blueprint3d) {
       pan(directions.DOWN)
     })
 
+    var hacked_coordinates = []
+    var hacked_model = window.hacked_model
+    $('.two-dimensional-image').click(function(e) {
+      var offset = $(this).offset();
+      var start = e.pageX - offset.left//x
+      var end = e.pageY - offset.top//y
+      var text = start + ','+end
+      console.log('start : ',text);
+      // blueprint3d.model.loadSerialized(data);
+      hacked_coordinate = hacked_model.floorplan.newCorner(start,end)
+      hacked_coordinates.push(hacked_coordinate)
+      if(hacked_coordinates.length == 2){
+        hacked_model.floorplan.newWall(hacked_coordinates[0],hacked_coordinates[1])
+        hacked_coordinates.length = 0;
+      }
+
+    })
+
     $("#move-left").dblclick(preventDefault);
     $("#move-right").dblclick(preventDefault);
     $("#move-up").dblclick(preventDefault);
     $("#move-down").dblclick(preventDefault);
+
   }
 
   function preventDefault(e) {
@@ -499,38 +518,26 @@ $(document).ready(function() {
   data = {
     "floorplan": {
         "corners": {
-            "56d9ebd1-91b2-875c-799d-54b3785fca1f": {
-                "x": 630.555,
-                "y": -227.58400000000006
-            },
-            "8f4a050d-e102-3c3f-5af9-3d9133555d76": {
-                "x": 294.64,
-                "y": -227.58400000000006
-            },
-            "4e312eca-6c4f-30d1-3d9a-a19a9d1ee359": {
+            "wall_1": {
                 "x": 294.64,
                 "y": 232.664
             },
-            "254656bf-8a53-3987-c810-66b349f49b19": {
+            "wall_2": {
                 "x": 745.7439999999998,
                 "y": 232.664
             },
-            "11d25193-4411-fbbf-78cb-ae7c0283164b": {
+            "wall_3": {
                 "x": 1044.7019999999998,
                 "y": 232.664
             },
-            "edf0de13-df9f-cd6a-7d11-9bd13c36ce12": {
+            "wall_4": {
                 "x": 1044.7019999999998,
-                "y": -105.66399999999999
-            },
-            "e7db8654-efe1-bda2-099a-70585874d8c0": {
-                "x": 745.7439999999998,
                 "y": -105.66399999999999
             }
         },
         "walls": [{
-            "corner1": "4e312eca-6c4f-30d1-3d9a-a19a9d1ee359",
-            "corner2": "254656bf-8a53-3987-c810-66b349f49b19",
+            "corner1": "wall_1",
+            "corner2": "wall_2",
             "frontTexture": {
                 "url": "images/wallmap.png",
                 "stretch": true,
@@ -541,87 +548,9 @@ $(document).ready(function() {
                 "stretch": true,
                 "scale": null
             }
-        }, {
-            "corner1": "254656bf-8a53-3987-c810-66b349f49b19",
-            "corner2": "e7db8654-efe1-bda2-099a-70585874d8c0",
-            "frontTexture": {
-                "url": "images/wallmap.png",
-                "stretch": true,
-                "scale": 0
-            },
-            "backTexture": {
-                "url": "https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/wallmap_yellow.png",
-                "stretch": true,
-                "scale": null
-            }
-        }, {
-            "corner1": "56d9ebd1-91b2-875c-799d-54b3785fca1f",
-            "corner2": "8f4a050d-e102-3c3f-5af9-3d9133555d76",
-            "frontTexture": {
-                "url": "images/wallmap.png",
-                "stretch": true,
-                "scale": 0
-            },
-            "backTexture": {
-                "url": "https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/wallmap_yellow.png",
-                "stretch": true,
-                "scale": null
-            }
-        }, {
-            "corner1": "8f4a050d-e102-3c3f-5af9-3d9133555d76",
-            "corner2": "4e312eca-6c4f-30d1-3d9a-a19a9d1ee359",
-            "frontTexture": {
-                "url": "images/wallmap.png",
-                "stretch": true,
-                "scale": 0
-            },
-            "backTexture": {
-                "url": "https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/wallmap_yellow.png",
-                "stretch": true,
-                "scale": null
-            }
-        }, {
-            "corner1": "254656bf-8a53-3987-c810-66b349f49b19",
-            "corner2": "11d25193-4411-fbbf-78cb-ae7c0283164b",
-            "frontTexture": {
-                "url": "images/wallmap.png",
-                "stretch": true,
-                "scale": 0
-            },
-            "backTexture": {
-                "url": "images/wallmap.png",
-                "stretch": true,
-                "scale": 0
-            }
-        }, {
-            "corner1": "11d25193-4411-fbbf-78cb-ae7c0283164b",
-            "corner2": "edf0de13-df9f-cd6a-7d11-9bd13c36ce12",
-            "frontTexture": {
-                "url": "images/wallmap.png",
-                "stretch": true,
-                "scale": 0
-            },
-            "backTexture": {
-                "url": "https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/light_brick.jpg",
-                "stretch": false,
-                "scale": 100
-            }
-        }, {
-            "corner1": "edf0de13-df9f-cd6a-7d11-9bd13c36ce12",
-            "corner2": "e7db8654-efe1-bda2-099a-70585874d8c0",
-            "frontTexture": {
-                "url": "images/wallmap.png",
-                "stretch": true,
-                "scale": 0
-            },
-            "backTexture": {
-                "url": "images/wallmap.png",
-                "stretch": true,
-                "scale": 0
-            }
-        }, {
-            "corner1": "e7db8654-efe1-bda2-099a-70585874d8c0",
-            "corner2": "56d9ebd1-91b2-875c-799d-54b3785fca1f",
+        },{
+            "corner1": "wall_3",
+            "corner2": "wall_4",
             "frontTexture": {
                 "url": "images/wallmap.png",
                 "stretch": true,
@@ -636,17 +565,18 @@ $(document).ready(function() {
         "wallTextures": [],
         "floorTextures": {},
         "newFloorTextures": {
-            "11d25193-4411-fbbf-78cb-ae7c0283164b,254656bf-8a53-3987-c810-66b349f49b19,e7db8654-efe1-bda2-099a-70585874d8c0,edf0de13-df9f-cd6a-7d11-9bd13c36ce12": {
+            "wall_3,wall_2,e7db8654-efe1-bda2-099a-70585874d8c0,wall_4": {
                 "url": "https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/light_fine_wood.jpg",
                 "scale": 300
             },
-            "254656bf-8a53-3987-c810-66b349f49b19,4e312eca-6c4f-30d1-3d9a-a19a9d1ee359,56d9ebd1-91b2-875c-799d-54b3785fca1f,8f4a050d-e102-3c3f-5af9-3d9133555d76,e7db8654-efe1-bda2-099a-70585874d8c0":{
+            "wall_2,wall_1,56d9ebd1-91b2-875c-799d-54b3785fca1f,8f4a050d-e102-3c3f-5af9-3d9133555d76,e7db8654-efe1-bda2-099a-70585874d8c0":{
               "url": "https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/light_fine_wood.jpg",
               "scale": 300
             }
         }
     },
-    "items": [{
+    "items" :[],
+    "sitems": [{
         "item_name": "Full Bed",
         "item_type": 1,
         "model_url": "https://blueprint-dev.s3.amazonaws.com/uploads/item_model/model/39/ik_nordli_full.js",
