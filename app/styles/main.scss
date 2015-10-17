@@ -64,7 +64,7 @@ div {
 }
 
 .sidebar {
-    padding: 20px;
+    padding: 20px 0;
     overflow-x: hidden;
     overflow-y: auto;
     border-right: 1px solid #eee;
@@ -208,11 +208,11 @@ div {
 
 #items-wrapper,
 #add-items {
-    background-color: #eee;
-    .col-sm-4 {
-        width: 31%;
+    background-color: #fff;
+    .col-sm-6 {
+        display: inline-block;
+        float:none;
         margin: 15px 0;
-        margin-left: 2%;
         border: 1px solid #eee;
         padding: 10px;
         background-color: #fff;
@@ -760,8 +760,9 @@ div {
 
 .fileUpload {
     position: absolute;
-    left: 40%;
-    bottom: 30px;
+    top: 22px;
+    right: 20px;
+    font-size: 12px;
 }
 
 .fileUpload input.upload {

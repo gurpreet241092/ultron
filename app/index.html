@@ -33,10 +33,24 @@
         <div class="row main-row">
             <!-- Left Column -->
             <div class="col-xs-4 sidebar">
+            <div class="fileUpload btn btn-danger">
+                <span class="glyphicon glyphicon-upload"></span>
+                <span>Upload</span>
+                <input id="upload_floorplan" type="file" class="upload" />
+            </div>
             <h3 class="heading">ULTRON</h3>
                 <!-- Main Navigation -->
 
                 <hr />
+
+                <div id="floorplanner-wrapper">
+                    <div class="two-dimensional-image"></div>
+                    <canvas id="floorplanner-canvas"></canvas>
+
+                                        <div id="draw-walls-hint">
+                        Press the "Esc" key to stop drawing walls
+                    </div>
+                </div>
                 <div id="floorplanner-controls" class="btn-group">
                         <button id="move" class="btn btn-tab">
                             Move Walls
@@ -48,16 +62,10 @@
                             Delete Walls
                         </button>
                     </div>
-
-                <div id="floorplanner-wrapper">
-                    <div class="two-dimensional-image"></div>
-                    <canvas id="floorplanner-canvas"></canvas>
-                    <div class="fileUpload btn btn-danger">
-                        <span>Upload</span>
-                        <input id="upload_floorplan" type="file" class="upload" />
-                    </div>
-                                        <div id="draw-walls-hint">
-                        Press the "Esc" key to stop drawing walls
+                    <!-- Add Items -->
+                <div id="add-items">
+                    <div class="row" id="items-wrapper">
+                        <!-- Items added here by items.js -->
                     </div>
                 </div>
                 <!-- Context Menu -->
@@ -180,13 +188,6 @@
                     </div>
                     <div id="loading-modal">
                         <h1>Loading...</h1>
-                    </div>
-                </div>
-
-                <!-- Add Items -->
-                <div id="add-items">
-                    <div class="row" id="items-wrapper">
-                        <!-- Items added here by items.js -->
                     </div>
                 </div>
             </div>

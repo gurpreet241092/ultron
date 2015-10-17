@@ -44,6 +44,10 @@ var CameraButtons = function(blueprint3d) {
     $("#move-right").dblclick(preventDefault);
     $("#move-up").dblclick(preventDefault);
     $("#move-down").dblclick(preventDefault);
+    $("#items_tab").click(function(e){
+      $("#floorplanner-wrapper").hide();
+      $("#floorplanner-controls").hide();
+    });
 
   }
 
