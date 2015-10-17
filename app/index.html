@@ -65,7 +65,7 @@
                 <div id="context-menu">
                     <div style="margin: 0 20px">
                         <span id="context-menu-name" class="lead"></span>
-                            <div class="panel panel-default">
+                        <div class="panel panel-default">
                             <div class="panel-heading">Adjust Size</div>
                             <div class="panel-body" style="color: #333333">
                                 <div class="form form-horizontal" class="lead">
@@ -99,11 +99,10 @@
                         </div>
                         <label class='lock'>
                             <input type="checkbox" id="fixed" /> Lock in place
-                            </label>
-                            <button class="btn btn-block btn-danger" id="context-menu-delete">
+                        </label>
+                        <button class="btn btn-block btn-danger" id="context-menu-delete">
                             <span class="glyphicon glyphicon-trash"></span> Delete
                         </button>
-
                         <br />
                         <br />
                     </div>
@@ -111,11 +110,16 @@
                 <!-- Floor textures -->
                 <div id="floorTexturesDiv" style="display:none; padding: 0 20px">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Textures</div>
+                        <div class="panel-heading">Floor Textures</div>
                         <div class="panel-body" style="color: #333333">
                             <div class="col-sm-6" style="padding: 3px">
-                                <a href="#" class="thumbnail texture-select-thumbnail" texture-url="https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/light_fine_wood.jpg" texture-stretch="false" texture-scale="300">
-                                    <img alt="Thumbnail light fine wood" src="https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/thumbnail_light_fine_wood.jpg" />
+                                <a href="#" class="thumbnail texture-select-thumbnail" texture-url="./images/light_fine_wood.jpg" texture-stretch="false" texture-scale="300">
+                                    <img alt="Thumbnail light fine wood" src="./images/thumbnail_light_fine_wood.jpg" width="100" height="80"/>
+                                </a>
+                            </div>
+                            <div class="col-sm-6" style="padding: 3px">
+                                <a href="#" class="thumbnail texture-select-thumbnail" texture-url="./images/marbletiles.jpg" texture-stretch="false" texture-scale="300">
+                                    <img alt="Thumbnail light fine wood" src="./images/thumbnail_marbletiles.jpg" width="100" height="80"/>
                                 </a>
                             </div>
                         </div>
@@ -124,21 +128,21 @@
                 <!-- Wall Textures -->
                 <div id="wallTextures" style="display:none; padding: 0 20px">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Adjust Wall</div>
+                        <div class="panel-heading">Wall Textures</div>
                         <div class="panel-body" style="color: #333333">
                             <span class="dis-ib" style="padding: 3px">
-                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/marbletiles.jpg" texture-stretch="false" texture-scale="300">
-                    <img alt="Thumbnail marbletiles" src="https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/thumbnail_marbletiles.jpg" width="100" height="80" />
+                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="./images/marbletiles.jpg" texture-stretch="false" texture-scale="300">
+                    <img alt="Thumbnail marbletiles" src="./images/thumbnail_marbletiles.jpg" width="100" height="80" />
                   </a>
                 </span>
                             <span class="dis-ib" style="padding: 3px">
-                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/wallmap_yellow.png" texture-stretch="true" texture-scale="">
-                    <img alt="Thumbnail wallmap yellow" src="https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/thumbnail_wallmap_yellow.png" width="100" height="80" />
+                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="./images/wallmap_yellow.jpg" texture-stretch="true" texture-scale="">
+                    <img alt="Thumbnail wallmap yellow" src="./images/thumbnail_wallmap_yellow.png" width="100" height="80" />
                   </a>
                 </span>
                             <span class="dis-ib" style="padding: 3px">
-                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/light_brick.jpg" texture-stretch="false" texture-scale="100">
-                    <img alt="Thumbnail light brick" src="https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/thumbnail_light_brick.jpg" width="100" height="80" />
+                  <a href="#" class="thumbnail texture-select-thumbnail" texture-url="./images/light_brick.jpg" texture-stretch="false" texture-scale="100">
+                    <img alt="Thumbnail light brick" src="./images/thumbnail_light_brick.jpg" width="100" height="80" />
                   </a>
                 </span>
                         </div>
@@ -179,32 +183,7 @@
                         <h1>Loading...</h1>
                     </div>
                 </div>
-                <!-- 2D Floorplanner -->
-                <!-- <div id="floorplanner"> -->
-                <!-- <canvas id="floorplanner-canvas"></canvas> -->
-                <!-- <div id="floorplanner-controls">
 
-              <button id="move" class="btn btn-sm btn-default">
-                <span class="glyphicon glyphicon-move"></span>
-                Move Walls
-              </button>
-              <button id="draw" class="btn btn-sm btn-default">
-                <span class="glyphicon glyphicon-pencil"></span>
-                Draw Walls
-              </button>
-              <button id="delete" class="btn btn-sm btn-default">
-                <span class="glyphicon glyphicon-remove"></span>
-                Delete Walls
-              </button>
-              <span class="pull-right">
-                <button class="btn btn-primary btn-sm" id="update-floorplan">Done &raquo;</button>
-              </span>
-
-            </div>
-            <div id="draw-walls-hint">
-              Press the "Esc" key to stop drawing walls
-            </div> -->
-                <!-- </div> -->
                 <!-- Add Items -->
                 <div id="add-items">
                     <div class="row" id="items-wrapper">
