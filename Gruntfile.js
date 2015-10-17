@@ -326,9 +326,11 @@ module.exports = function (grunt) {
           dest: '<%= config.dist %>',
           src: [
             '*.{ico,png,txt}',
-            'images/{,*/}*.webp',
+            'images/{,*/}*.png',
+            'images/*',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'fonts/*'
           ]
         }, {
           src: 'node_modules/apache-server-configs/dist/.htaccess',
@@ -414,7 +416,7 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'copy:dist',
-    'rev',
+    // 'rev',
     'usemin',
     'htmlmin'
   ]);

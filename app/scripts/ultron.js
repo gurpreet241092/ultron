@@ -1,3 +1,4 @@
+var $=require('jquery');
 require('./ultron.js');
 var THREE = require('three');
 

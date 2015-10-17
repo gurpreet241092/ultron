@@ -1,6 +1,7 @@
 var ThreeMain = require('./three/three_main.js');
 var Model = require('./model/model.js');
 var Floorplanner = require('./floorplanner/floorplanner');
+var $ = require('jquery');
 
 global.Blueprint3d = function(opts) {
   // opts.threeElement
@@ -21,12 +22,25 @@ global.Blueprint3d = function(opts) {
 
 $(document).ready(function() {
   var items = [
+  {
+      "name" : "KingBed Interior",
+      "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/111/thumbnail_nyc2.jpg",
+      "model" : "./data/kingbed_interior.js",
+      "type" : "1"
+    },
    {
       "name" : "Closed Door",
       "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/646/thumbnail_Screen_Shot_2014-10-27_at_8.04.12_PM.png",
       "model" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_model/model/617/closed-door28x80_baked.js",
       "type" : "7"
     },
+    {
+      "name" : "Cup",
+      "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/111/thumbnail_nyc2.jpg",
+      "model" : "./data/cup.js",
+      "type" : "1"
+    },
+
     {
       "name" : "Open Door",
       "image" : "https://blueprint-dev.s3.amazonaws.com/uploads/item_picture/image/617/thumbnail_Screen_Shot_2014-10-27_at_8.22.46_PM.png",
