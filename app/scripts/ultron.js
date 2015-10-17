@@ -390,14 +390,12 @@ var TextureSelector = function (blueprint3d, sideMenu) {
     currentTarget = halfEdge;
     $("#floorTexturesDiv").hide();
     $("#wallTextures").show();
-    $("#floorplanner-wrapper").hide();
   }
 
   function floorClicked(room) {
     currentTarget = room;
     $("#wallTextures").hide();
     $("#floorTexturesDiv").show();
-    $("#floorplanner-wrapper").hide();
   }
 
   function reset() {

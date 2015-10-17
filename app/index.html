@@ -42,18 +42,18 @@
                 <div id="floorplanner-wrapper">
                     <div class="two-dimensional-image"></div>
                     <canvas id="floorplanner-canvas"></canvas>
-                    <div class="fileUpload btn btn-info">
+                    <div class="fileUpload btn btn-danger">
                         <span>Upload</span>
                         <input id="upload_floorplan" type="file" class="upload" />
                     </div>
                     <div id="floorplanner-controls" class="btn-group">
-                        <button id="move" class="btn btn-info">
+                        <button id="move" class="btn btn-danger">
                             <span class="glyphicon glyphicon-move"></span> Move Walls
                         </button>
-                        <button id="draw" class="btn btn-info">
+                        <button id="draw" class="btn btn-danger">
                             <span class="glyphicon glyphicon-pencil"></span> Draw Walls
                         </button>
-                        <button id="delete" class="btn btn-info">
+                        <button id="delete" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove"></span> Delete Walls
                         </button>
                     </div>
@@ -65,13 +65,7 @@
                 <div id="context-menu">
                     <div style="margin: 0 20px">
                         <span id="context-menu-name" class="lead"></span>
-                        <br />
-                        <br />
-                        <button class="btn btn-block btn-danger" id="context-menu-delete">
-                            <span class="glyphicon glyphicon-trash"></span> Delete Item
-                        </button>
-                        <br />
-                        <div class="panel panel-default">
+                            <div class="panel panel-default">
                             <div class="panel-heading">Adjust Size</div>
                             <div class="panel-body" style="color: #333333">
                                 <div class="form form-horizontal" class="lead">
@@ -79,7 +73,7 @@
                                         <label class="col-sm-5 control-label">
                                             Width
                                         </label>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-7">
                                             <input type="number" class="form-control" id="item-width">
                                         </div>
                                     </div>
@@ -87,7 +81,7 @@
                                         <label class="col-sm-5 control-label">
                                             Depth
                                         </label>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-7">
                                             <input type="number" class="form-control" id="item-depth">
                                         </div>
                                     </div>
@@ -95,7 +89,7 @@
                                         <label class="col-sm-5 control-label">
                                             Height
                                         </label>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-7">
                                             <input type="number" class="form-control" id="item-height">
                                         </div>
                                     </div>
@@ -103,8 +97,13 @@
                                 <small><span class="text-muted">Measurements in inches.</span></small>
                             </div>
                         </div>
-                        <label>
-                            <input type="checkbox" id="fixed" /> Lock in place</label>
+                        <label class='lock'>
+                            <input type="checkbox" id="fixed" /> Lock in place
+                            </label>
+                            <button class="btn btn-block btn-danger" id="context-menu-delete">
+                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        </button>
+
                         <br />
                         <br />
                     </div>
@@ -112,7 +111,7 @@
                 <!-- Floor textures -->
                 <div id="floorTexturesDiv" style="display:none; padding: 0 20px">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Adjust Floor</div>
+                        <div class="panel-heading">Textures</div>
                         <div class="panel-body" style="color: #333333">
                             <div class="col-sm-6" style="padding: 3px">
                                 <a href="#" class="thumbnail texture-select-thumbnail" texture-url="https://blueprint-dev.s3.amazonaws.com/uploads/floor_wall_texture/file/light_fine_wood.jpg" texture-stretch="false" texture-scale="300">
