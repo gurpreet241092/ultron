@@ -70,6 +70,7 @@ div {
     border-right: 1px solid #eee;
     background-color: #fff;
     min-width: 475;
+    padding-left: 60px;
 }
 
 .nav-sidebar {
@@ -152,6 +153,14 @@ div {
 #floorplanner-controls {
     margin: 20px auto;
     display: table;
+    .disabled {
+        color: #ED5565;
+        background-color: #fff;
+        border: 0;
+        border-bottom: 2px solid #ED5565;
+        opacity: 1;
+        cursor: auto;
+    }
 }
 
 #draw-walls-hint {
@@ -165,7 +174,8 @@ div {
     display: none;
 }
 
-#wallTextures, #floorTexturesDiv {
+#wallTextures,
+#floorTexturesDiv {
     padding: 0px 20px;
     position: fixed;
     right: 10px;
@@ -174,11 +184,16 @@ div {
     img {
         width: auto;
     }
-    .panel-heading{
-      padding: 6px;
-    text-align: center;
-    background-color: #fff;
+    .panel-heading {
+        padding: 6px;
+        text-align: center;
+        background-color: #fff;
     }
+}
+
+.heading {
+    text-align: center;
+    margin-top: 0;
 }
 
 .add-item {
@@ -218,8 +233,7 @@ div {
 }
 
 #floorplanner-canvas {
-    position: absolute;
-    top: 40px;
+  position: absolute;
 }
 
 #context-menu {
@@ -760,4 +774,51 @@ div {
     cursor: pointer;
     opacity: 0;
     filter: alpha(opacity=0);
+}
+
+nav {
+    height: 100%;
+    width: 60px;
+    position: fixed;
+    left: 0;
+    background-color: #2F2F2F;
+    z-index: 9;
+    ul {
+        padding-left: 0;
+        li {
+            list-style-type: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            border-bottom: 1px solid #3C3C3C;
+            cursor: pointer;
+            &:hover {
+                background-color: #3C3C3C;
+            }
+            i {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.btn-tab {
+    background-color: #fff;
+    border: 0;
+    color: #888;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    border-radius: 0;
+    padding: .375rem 1.4rem;
+    &:hover {
+        background-color: white;
+        color: $grapefruit-light;
+    }
+    &:focus,
+    &:active {
+        border: 0;
+        border-bottom: 1px solid #eee;
+        background-color: #fff;
+        color: #888;
+        box-shadow: none;
+    }
 }

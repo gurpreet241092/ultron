@@ -24,21 +24,31 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="container-fluid">
+    <nav>
+      <ul>
+        <li id="design_tab"><i class="glyphicon glyphicon-pencil"></i></li>
+        <li id="items_tab"><i class="glyphicon glyphicon-plus"></i></li>
+      </ul>
+    </nav>
         <div class="row main-row">
             <!-- Left Column -->
             <div class="col-xs-4 sidebar">
+            <h3 class="heading">ULTRON</h3>
                 <!-- Main Navigation -->
-                <ul class="nav nav-sidebar">
-                    <li id="design_tab"><a href="#">
-              Design
-              <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-            </a></li>
-                    <li id="items_tab"><a href="#">
-              Add Items
-              <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-            </a></li>
-                </ul>
+
                 <hr />
+                <div id="floorplanner-controls" class="btn-group">
+                        <button id="move" class="btn btn-tab">
+                            Move Walls
+                        </button>
+                        <button id="draw" class="btn btn-tab">
+                            Draw Walls
+                        </button>
+                        <button id="delete" class="btn btn-tab">
+                            Delete Walls
+                        </button>
+                    </div>
+
                 <div id="floorplanner-wrapper">
                     <div class="two-dimensional-image"></div>
                     <canvas id="floorplanner-canvas"></canvas>
@@ -46,18 +56,7 @@
                         <span>Upload</span>
                         <input id="upload_floorplan" type="file" class="upload" />
                     </div>
-                    <div id="floorplanner-controls" class="btn-group">
-                        <button id="move" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-move"></span> Move Walls
-                        </button>
-                        <button id="draw" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-pencil"></span> Draw Walls
-                        </button>
-                        <button id="delete" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span> Delete Walls
-                        </button>
-                    </div>
-                    <div id="draw-walls-hint">
+                                        <div id="draw-walls-hint">
                         Press the "Esc" key to stop drawing walls
                     </div>
                 </div>

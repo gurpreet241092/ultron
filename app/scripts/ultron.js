@@ -401,11 +401,6 @@ var TextureSelector = function (blueprint3d, sideMenu) {
   function reset() {
     $("#wallTextures").hide();
     $("#floorTexturesDiv").hide();
-    if ($('#context-menu').is(':visible')){
-      $("#floorplanner-wrapper").hide();
-    } else {
-      $("#floorplanner-wrapper").show();
-    }
   }
 
   init();
