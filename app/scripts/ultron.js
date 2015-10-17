@@ -1,4 +1,5 @@
 require('./ultron.js');
+var THREE = require('three');
 
 /*
  * Camera Buttons
@@ -389,24 +390,17 @@ var TextureSelector = function (blueprint3d, sideMenu) {
     currentTarget = halfEdge;
     $("#floorTexturesDiv").hide();
     $("#wallTextures").show();
-    $("#floorplanner-wrapper").hide();
   }
 
   function floorClicked(room) {
     currentTarget = room;
     $("#wallTextures").hide();
     $("#floorTexturesDiv").show();
-    $("#floorplanner-wrapper").hide();
   }
 
   function reset() {
     $("#wallTextures").hide();
     $("#floorTexturesDiv").hide();
-    if ($('#context-menu').is(':visible')){
-      $("#floorplanner-wrapper").hide();
-    } else {
-      $("#floorplanner-wrapper").show();
-    }
   }
 
   init();
@@ -504,6 +498,26 @@ $(document).ready(function() {
   var sideMenu = new SideMenu(blueprint3d, viewerFloorplanner, modalEffects);
   var textureSelector = new TextureSelector(blueprint3d, sideMenu);
   var cameraButtons = new CameraButtons(blueprint3d);
+
+  //Create grid
+  var size = 1000, step = 20;
+
+var geometry = new THREE.Geometry();
+var material = new THREE.LineBasicMaterial( { color: 0xcccccc, opacity: 0.2 } );
+
+for ( var i = - size; i <= size; i += step ) {
+
+    geometry.vertices.push( new THREE.Vector3( - size, 0, i ) );
+    geometry.vertices.push( new THREE.Vector3(   size, 0, i ) );
+
+    geometry.vertices.push( new THREE.Vector3( i, 0, - size ) );
+    geometry.vertices.push( new THREE.Vector3( i, 0,   size ) );
+
+}
+
+var line = new THREE.Line( geometry, material, THREE.LinePieces );
+var scene = blueprint3d.three.getScene();
+scene.add( line );
 
   // Simple hack for exporting rooms.
   $(window).dblclick(function() {
@@ -785,5 +799,25 @@ $(document).ready(function() {
   // }
   blueprint3d.model.loadSerialized(data);
 });
+
+var input = document.getElementById('upload_floorplan');
+
+input.onclick = function () {
+    this.value = null;
+};
+
+input.onchange = function () {
+    var file = this.files[0];
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = function () {
+        var image = new Image();
+        image.src = fileReader.result;
+        image.onload = function () {
+        	var url = 'url('+image.src+')';
+            $('.two-dimensional-image').css('background-image',url);
+        };
+    };
+};
 
 
