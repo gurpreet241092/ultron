@@ -22,8 +22,8 @@ var HalfEdge = function(room, wall, front) {
   this.plane = null;
 
   // transform from world coords to wall planes (z=0)
-  this.interiorTransform = new THREE.Matrix4(); 
-  this.invInteriorTransform = new THREE.Matrix4(); 
+  this.interiorTransform = new THREE.Matrix4();
+  this.invInteriorTransform = new THREE.Matrix4();
   this.exteriorTransform = new THREE.Matrix4();
   this.invExteriorTransform = new THREE.Matrix4();
 
@@ -59,6 +59,10 @@ var HalfEdge = function(room, wall, front) {
       this.wall.backTexture = texture;
     }
     this.redrawCallbacks.fire();
+    if (textureUrl.indexOf('white') == -1){
+      window.walltexture = ""
+      window.wallhalfedge = ""
+    }
   }
 
   // this feels hacky, but need wall items
@@ -113,7 +117,7 @@ var HalfEdge = function(room, wall, front) {
     var tt = new THREE.Matrix4();
     tt.makeTranslation(-v1.x, 0, -v1.y);
     var tr = new THREE.Matrix4();
-    tr.makeRotationY(-angle); 
+    tr.makeRotationY(-angle);
     transform.multiplyMatrices( tr, tt );
     invTransform.getInverse(transform);
   }
@@ -124,7 +128,7 @@ var HalfEdge = function(room, wall, front) {
       this.interiorStart().x,
       this.interiorStart().y,
       this.interiorEnd().x,
-      this.interiorEnd().y); 
+      this.interiorEnd().y);
   }
 
   this.getStart = function() {
@@ -202,7 +206,7 @@ var HalfEdge = function(room, wall, front) {
     // make the best of things if we dont have prev or next
     if (!v1) {
       var v1startX = v2.getStart().x - (v2.getEnd().x - v2.getStart().x);
-      var v1startY = v2.getStart().y - (v2.getEnd().y - v2.getStart().y);     
+      var v1startY = v2.getStart().y - (v2.getEnd().y - v2.getStart().y);
       var v1endX = v2.getStart().x;
       var v1endY = v2.getStart().y;
     } else {
@@ -216,12 +220,12 @@ var HalfEdge = function(room, wall, front) {
       var v2startX = v1.getEnd().x;
       var v2startY = v1.getEnd().y;
       var v2endX = v1.getEnd().x + (v1.getEnd().x - v1.getStart().x);
-      var v2endY = v1.getEnd().y + (v1.getEnd().y - v1.getStart().y); 
+      var v2endY = v1.getEnd().y + (v1.getEnd().y - v1.getStart().y);
     } else {
       var v2startX = v2.getStart().x;
       var v2startY = v2.getStart().y;
       var v2endX = v2.getEnd().x;
-      var v2endY = v2.getEnd().y;      
+      var v2endY = v2.getEnd().y;
     }
 
     // CCW angle between edges

@@ -58,7 +58,7 @@ var CameraButtons = function(blueprint3d) {
             $('.sec1').show();
             $('#add-items').hide();
         });
-
+        window.phongMaterial = [new THREE.MeshPhongMaterial( { ambient: 0x555555, color: 0x555555, specular: 0xffffff, shininess: 50, shading: THREE.SmoothShading }  )]
     }
 
     function preventDefault(e) {
@@ -398,6 +398,14 @@ var TextureSelector = function(blueprint3d, sideMenu) {
     }
 
     function wallClicked(halfEdge) {
+
+        if (halfEdge.getTexture()["url"].indexOf('white') == -1){
+            window.walltexture = halfEdge.getTexture()["url"];
+            window.wallhalfedge = halfEdge;
+            halfEdge.setTexture('./images/white.jpg', true);
+        } else if(window.walltexture){
+          window.wallhalfedge.setTexture(window.walltexture,true);
+        }
         currentTarget = halfEdge;
         $("#floorTexturesDiv").hide();
         $("#wallTextures").show();
@@ -405,12 +413,22 @@ var TextureSelector = function(blueprint3d, sideMenu) {
 
     function floorClicked(room) {
         currentTarget = room;
+        window.floorplan = room.floorPlane
+        window.floorplanmat = room.floorPlane.material
+        room.floorPlane.material = window.phongMaterial
         $("#wallTextures").hide();
         $("#floorTexturesDiv").show();
     }
 
     function reset() {
         $("#wallTextures").hide();
+        console.log(window.walltexture)
+        if (window.walltexture.indexOf('white') == -1){
+            window.wallhalfedge.setTexture(window.walltexture,true)
+        }
+        if (window.floorplanmat){
+          window.floorplan.material = window.floorplanmat;
+        }
         $("#floorTexturesDiv").hide();
     }
 
