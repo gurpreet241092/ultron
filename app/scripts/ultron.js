@@ -49,6 +49,11 @@ var CameraButtons = function(blueprint3d) {
       $("#floorplanner-controls").hide();
     });
 
+    $("#design_tab").click(function(e){
+      $("#viewer").show();
+      $("#floorplanner-controls").show();
+    });
+
   }
 
   function preventDefault(e) {
@@ -473,7 +478,7 @@ var ViewerFloorplanner = function(blueprint3d) {
   }
 
   this.handleWindowResize = function() {
-    $(canvasWrapper).height(window.innerHeight - $(canvasWrapper).offset().top);
+    $(canvasWrapper).height(300);
     scope.floorplanner.resizeView();
   };
 
