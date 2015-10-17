@@ -45,13 +45,15 @@ var CameraButtons = function(blueprint3d) {
     $("#move-up").dblclick(preventDefault);
     $("#move-down").dblclick(preventDefault);
     $("#items_tab").click(function(e){
-      $("#floorplanner-wrapper").hide();
-      $("#floorplanner-controls").hide();
+     $('.sec1').hide();
+      $("#viewer").show();
+
     });
 
     $("#design_tab").click(function(e){
       $("#viewer").show();
-      $("#floorplanner-controls").show();
+      $('.sec1').show();
+      $('#add-items').hide();
     });
 
   }
@@ -134,7 +136,6 @@ var ContextMenu = function(blueprint3d) {
   function itemSelected(item) {
     selectedItem = item;
 
-    console.log(selectedItem);
 
     $("#context-menu-name").text(item.metadata.itemName);
 
@@ -143,7 +144,6 @@ var ContextMenu = function(blueprint3d) {
     $("#item-depth").val(cmToIn(selectedItem.getDepth()).toFixed(0));
 
     $("#context-menu").show();
-    $("#floorplanner-wrapper").hide();
 
     $("#fixed").prop('checked', item.fixed);
   }
@@ -165,7 +165,6 @@ var ContextMenu = function(blueprint3d) {
   function itemUnselected() {
     selectedItem = null;
     $("#context-menu").hide();
-    $("#floorplanner-wrapper").show();
   }
 
   init();
@@ -307,7 +306,7 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
     blueprint3d.three.getController().setSelectedObject(null);
 
     // show and hide the right divs
-    currentState.div.hide()
+    // currentState.div.hide()
     newState.div.show()
 
     // custom actions
@@ -478,7 +477,7 @@ var ViewerFloorplanner = function(blueprint3d) {
   }
 
   this.handleWindowResize = function() {
-    $(canvasWrapper).height(300);
+    $(canvasWrapper).height(400);
     scope.floorplanner.resizeView();
   };
 
